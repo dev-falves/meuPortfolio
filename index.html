@@ -6,18 +6,16 @@
   <title>Filipe Alves</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg-dark: #0a0812;
-      --bg-card: rgba(26, 20, 44, 0.6);
-      --purple-primary: #8b5cf6;
-      --purple-glow: rgba(139, 92, 246, 0.35);
-      --purple-light: #c4b5fd;
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --border-color: rgba(139, 92, 246, 0.2);
+      --bg-main: #ffffff;
+      --bg-alt: #f7f7f7;
+      --text-main: #0a0a0a;
+      --text-support: #525252;
+      --hairline: #e5e5e5;
+      --accent-blue: #0066ff;
     }
 
     * {
@@ -29,455 +27,511 @@
     }
 
     body {
-      background-color: var(--bg-dark);
+      background-color: var(--bg-alt);
       color: var(--text-main);
       line-height: 1.6;
-      overflow-x: hidden;
-    }
-    .glow-bg {
-      position: fixed;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, var(--purple-glow) 0%, rgba(0,0,0,0) 70%);
-      top: -100px;
-      right: -100px;
-      z-index: -1;
-      pointer-events: none;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 80px; 
     }
 
-    .glow-bg-2 {
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(124, 58, 237, 0.2) 0%, rgba(0,0,0,0) 70%);
-      bottom: -150px;
-      left: -150px;
-      z-index: -1;
-      pointer-events: none;
-    }
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(10, 8, 18, 0.8);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
-      z-index: 100;
-    }
-    nav {
-      max-width: 1100px;
+    main {
+      max-width: 1024px;
       margin: 0 auto;
-      padding: 1.2rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background-color: var(--bg-main);
+      border-left: 1px solid var(--hairline);
+      border-right: 1px solid var(--hairline);
+      min-height: 100vh;
     }
-    .logo {
-      font-size: 1.4rem;
-      font-weight: 800;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%);
+      display: block;
+    }
+
+    a {
       color: var(--text-main);
       text-decoration: none;
-      letter-spacing: -0.5px;
     }
 
-    .logo span {
-      color: var(--purple-primary);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--purple-primary);
-    }
-
-    section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 6rem 2rem;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .section-title span {
-      color: var(--purple-primary);
-    }
-
-  
-    #home {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 3rem;
-      padding-top: 8rem;
-    }
-
-    .hero-content {
-      flex: 1;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 0.4rem 1rem;
-      background: rgba(139, 92, 246, 0.15);
-      border: 1px solid var(--border-color);
-      color: var(--purple-light);
-      border-radius: 50px;
-      font-size: 0.85rem;
+    .micro-label {
+      display: block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
       font-weight: 600;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-title {
-      font-size: 3.5rem;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 1.5rem;
-      letter-spacing: -1px;
-    }
-
-    .hero-title span {
-      background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-description {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      max-width: 500px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 1.8rem;
-      background: var(--purple-primary);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px var(--purple-glow);
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
-    }
-
-    .hero-image-container {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .profile-img {
-      width: 320px;
-      height: 320px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--border-color);
-      box-shadow: 0 0 35px var(--purple-glow);
-      transition: transform 0.4s ease;
-    }
-
-    .profile-img:hover {
-      transform: scale(1.03);
-    }
-
-  
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .project-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      overflow: hidden;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--purple-primary);
-      box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
-    }
-
-    .project-img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .project-info {
-      padding: 1.5rem;
-    }
-
-    .project-tags {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      background: rgba(139, 92, 246, 0.1);
-      color: var(--purple-light);
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      font-weight: 600;
-    }
-
-    .project-title {
-      font-size: 1.25rem;
-      font-weight: 700;
+      color: var(--text-support);
       margin-bottom: 0.5rem;
     }
 
-    .project-desc {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 1.2rem;
+    .display-number {
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      color: var(--text-main);
+      display: block;
     }
 
-    .project-link {
-      color: var(--purple-light);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
+    .support-text {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-support);
+      max-width: 700px;
+    }
+
+    .action-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      transition: gap 0.2s ease;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--text-main);
+      padding-bottom: 0.1rem;
+      transition: opacity 0.3s ease;
+    }
+    
+    .action-link:hover {
+      opacity: 0.6;
     }
 
-    .project-link:hover {
-      gap: 0.6rem;
+    .border-bottom { border-bottom: 1px solid var(--hairline); }
+    .border-top { border-top: 1px solid var(--hairline); }
+    .border-right { border-right: 1px solid var(--hairline); }
+
+    /* Hero Section */
+    #home {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
 
-  
-    footer {
-      border-top: 1px solid var(--border-color);
+    .hero-photo {
+      aspect-ratio: 1 / 1;
+    }
+
+    .hero-status {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent-blue);
+      border-radius: 50%;
+    }
+
+    .status-text {
+      font-size: 1.25rem;
+      font-weight: 400;
+      max-width: 250px;
+      line-height: 1.4;
+    }
+
+    .hero-name {
+      grid-column: 1 / -1;
+      padding: 3rem;
+    }
+
+    .hero-name h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+    }
+
+    .hero-info-grid {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .info-block {
+      padding: 1.5rem 3rem;
+    }
+
+    .info-block p {
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    /* Sobre */
+    #sobre {
+      padding: 4rem 3rem;
+    }
+
+    /* Interesses / Tags */
+    #tags {
+      padding: 2.5rem 3rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .tag-list span {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      font-weight: 400;
+    }
+
+    /* Grid de Métricas Secundárias */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .metric-box {
+      padding: 3rem;
+    }
+
+    /* Portfólio */
+    .section-header {
+      padding: 3rem;
+    }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: 350px 1fr;
+    }
+
+    .project-img-wrapper {
+      aspect-ratio: 4 / 3;
+    }
+
+    .project-info {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .project-desc {
+      margin-bottom: 2rem;
+    }
+
+    /* CTA Card */
+    #contato {
+      background-color: var(--bg-alt);
+      background-image: radial-gradient(var(--hairline) 1px, transparent 1px);
+      background-size: 24px 24px;
+      padding: 6rem 3rem;
       text-align: center;
-      padding: 3rem 2rem;
-      background: rgba(10, 8, 18, 0.9);
     }
 
-    .footer-content {
+    .cta-content {
+      background: var(--bg-main);
+      padding: 4rem 2rem;
+      border: 1px solid var(--hairline);
       max-width: 600px;
       margin: 0 auto;
     }
 
-    .footer-content h3 {
-      font-size: 1.8rem;
+    .cta-content h2 {
+      font-size: 2.5rem;
+      font-weight: 400;
+      letter-spacing: -0.03em;
       margin-bottom: 1rem;
     }
 
-    .footer-content p {
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
+    .cta-content p {
+      margin-bottom: 2.5rem;
     }
 
-    .copyright {
-      margin-top: 2rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
-      padding-top: 1.5rem;
+    .cta-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
     }
 
-    
+    /* Navegação Inferior */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--hairline);
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      padding: 1.2rem;
+      z-index: 100;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .nav-item.active, .nav-item:hover {
+      opacity: 1;
+    }
+
+    .nav-icon {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    .nav-item .micro-label {
+      margin: 0;
+      font-size: 0.6rem;
+    }
+
     @media (max-width: 768px) {
-      #home {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding-top: 6rem;
+      #home, .hero-info-grid, .project-row {
+        grid-template-columns: 1fr;
       }
-
-      .hero-title {
-        font-size: 2.5rem;
+      .metrics-grid {
+        grid-template-columns: 1fr;
       }
-
-      .hero-description {
-        margin: 0 auto 2rem auto;
+      .hero-photo, .project-img-wrapper {
+        border-right: none;
+        border-bottom: 1px solid var(--hairline);
       }
-
-      .profile-img {
-        width: 220px;
-        height: 220px;
+      .info-block.border-right {
+        border-right: none;
+        border-bottom: 1px solid var(--hairline);
       }
-
-      .nav-links {
-        gap: 1rem;
+      .metric-box.border-right {
+        border-right: none;
+        border-bottom: 1px solid var(--hairline);
+      }
+      .metrics-grid .metric-box:last-child {
+        border-bottom: none;
+      }
+      .hero-name, .hero-status, .info-block, #sobre, #tags, .section-header, .project-info {
+        padding: 2rem;
+      }
+      .bottom-nav {
+        gap: 2.5rem;
       }
     }
   </style>
 </head>
 <body>
 
- 
-  <div class="glow-bg"></div>
-  <div class="glow-bg-2"></div>
+  <main>
+    
+    <section id="home">
+      <div class="hero-photo border-right border-bottom">
+        <img src="profile0.png" alt="Filipe Alves">
+      </div>
+      
+      <div class="hero-status border-bottom">
+        <div class="status-indicator">
+          <div class="dot"></div>
+          <span class="micro-label">Status</span>
+        </div>
+        <p class="status-text">Disponível para novos desafios e infraestrutura de escala.</p>
+      </div>
 
+      <div class="hero-name border-bottom">
+        <span class="micro-label">Desenvolvedor Back-end</span>
+        <h1>Filipe Alves</h1>
+      </div>
 
-  <header>
-    <nav>
-      <a href="#home" class="logo">Filipe<span> Alves</span></a>
-      <ul class="nav-links">
-        <li><a href="#home">Início</a></li>
-        <li><a href="#portfolio">Portfólio</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+      <div class="hero-info-grid border-bottom">
+        <div class="info-block border-right">
+          <span class="micro-label">Localização</span>
+          <p>Guarulhos, SP &#8599;</p>
+        </div>
+        <div class="info-block">
+          <span class="micro-label">Cargo Atual</span>
+          <p>Suporte Técnico & Infraestrutura &#8599;</p>
+        </div>
+      </div>
+    </section>
 
- 
-  <section id="home">
-    <div class="hero-content">
-      <span class="badge">Desenvolvedor Back-end</span>
-      <h1 class="hero-title">Engenharia backend sólida para <span>negócios escaláveis</span></h1>
-      <p class="hero-description">
-        Possuo experiência em Redes de Computadores, Automação Comercial e Ecossistema C# / .NET + Oracle DB em uma das
-		maiores empresas de varejo de São Paulo.
+    <section id="sobre" class="border-bottom">
+      <span class="micro-label">Sobre</span>
+      <p class="support-text">
+        Engenharia backend sólida para negócios escaláveis. Possuo experiência em Redes de Computadores, Automação Comercial e Ecossistema C# / .NET + Oracle DB em uma das maiores empresas de varejo de São Paulo. Atualmente direcionando estudos para Arquitetura de Soluções.
       </p>
-      <a href="#portfolio" class="btn">Veja como ajudei empresas</a>
-    </div>
+    </section>
 
-    <div class="hero-image-container">
-      
-      <img src="profile.png" alt="Foto de Perfil" class="profile-img">
-    </div>
-  </section>
+    <section class="metrics-grid border-bottom">
+      <div class="metric-box border-right">
+        <span class="micro-label">Idade</span>
+        <span class="display-number">24</span>
+      </div>
+      <div class="metric-box border-right">
+        <span class="micro-label">Projetos Ativos</span>
+        <span class="display-number">05</span>
+      </div>
+      <div class="metric-box">
+        <span class="micro-label">Disponibilidade</span>
+        <span class="display-number">Imediata</span>
+      </div>
+    </section>
 
-  
-  <section id="portfolio">
-    <h2 class="section-title"><span>#</span> Portfólio</h2>
+    <section id="tags" class="border-bottom">
+      <span class="micro-label">Competências Técnicas</span>
+      <div class="tag-list">
+        <span>Grafana</span>
+        <span>Zabbix</span>
+        <span>Redes & Infra</span>
+        <span>Python</span>
+        <span>Automação</span>
+        <span>IA</span>
+        <span>Docker & UFW</span>
+        <span>C# / .NET</span>
+      </div>
+    </section>
 
-    <div class="portfolio-grid">
-      
-      
-      <article class="project-card">
-        
-        <img src="port1.png" alt="Projeto1" class="project-img">
+    <section id="portfolio" class="border-bottom">
+      <div class="section-header border-bottom">
+        <span class="micro-label">Portfólio & Casos de Estudo</span>
+      </div>
+
+      <article class="project-row border-bottom">
+        <div class="project-img-wrapper border-right">
+          <img src="port1.png" alt="Painel de Monitoramento">
+        </div>
         <div class="project-info">
-          <div class="project-tags">
-            <span class="tag">Grafana</span>
-            <span class="tag">Zabbix</span>
-			<span class="tag">Redes</span>
-			<span class="tag">Infra</span>
+          <div>
+            <span class="micro-label">Grafana &middot; Zabbix</span>
+            <h3 class="project-title">Painel de Monitoramento de Infraestrutura</h3>
+            <p class="support-text project-desc">Montei o principal painel da empresa, permitindo identificar e resolver problemas antes que afetem a operação diária.</p>
           </div>
-          <h3 class="project-title">Painel de Monitoramento de Infraestrutura</h3>
-          <p class="project-desc">Montei o principal painel da empresa, permitindo identificar e resolver problemas antes que
-			afetem a operação.
-		  </p>
-<a href="#contato" class="project-link">Contato &rarr;</a>        </div>
-      </article>
-
-      	<article class="project-card">
-        <img src="port5.png" alt="Projeto4" class="project-img">
-        <div class="project-info">
-          <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Automação</span>
-			<span class="tag">IA</span>
-
-          </div>
-          <h3 class="project-title">Automação e garantia de processos</h3>
-          <p class="project-desc">Criei um sistema crucial para a garantia do processo de preços nos servidores gateways e PDVs
-			das filiais, sendo parte fixa da nossa operação.
-		  </p>
-<a href="#contato" class="project-link">Contato &rarr;</a>        </div>
-      </article>
-
-      <article class="project-card">
-        <img src="port3.png" alt="Projeto3" class="project-img">
-        <div class="project-info">
-          <div class="project-tags">
-            <span class="tag">Bookstack</span>
-            <span class="tag">Automação</span>
-			<span class="tag">Documentação</span>
-
-          </div>
-          <h3 class="project-title">Documentação</h3>
-          <p class="project-desc">Subi um sistema de documentação para gerenciar e manter o conhecimento interno, sempre
-			acessível
-		  </p>
-<a href="#contato" class="project-link">Contato &rarr;</a>        </div>
-      </article>
-
-      <article class="project-card">
-        
-        <img src="port2.png" alt="Projeto2" class="project-img">
-        <div class="project-info">
-          <div class="project-tags">
-            <span class="tag">Grafana</span>
-            <span class="tag">Zabbix</span>
-			<span class="tag">Redes</span>
-			<span class="tag">Infra</span>
-          </div>
-          <h3 class="project-title">Visão Micro do Monitoramento</h3>
-          <p class="project-desc">O painel construído conta com mais de 6 monitoramentos, sendo os principal: links de rede,
-			firewalls, switches, gateways, roteadores e print servers.
-		  </p>
-<a href="#contato" class="project-link">Contato &rarr;</a>        </div>
-      </article>
-
-	        <article class="project-card">
-        
-        <img src="port0.png" alt="Projeto0" class="project-img">
-        <div class="project-info">
-          <div class="project-tags">
-            <span class="tag">Proatividade</span>
-            <span class="tag">Desempenho</span>
-			<span class="tag">Automatização</span>
-			<span class="tag">Gestão</span>
-          </div>
-          <h3 class="project-title">... E MUITO MAIS!</h3>
-          <p class="project-desc">Softwares de formatação e configuração automática de PDVs, de controle de faturas, despertar automático de
-			frente de caixa, ajuste rápido de telas...... tudo isso feito por mim para modernizar empresas.
-          <a href="#contato" class="project-link">Contato &rarr;</a>
+          <a href="#contato" class="action-link">Detalhes do projeto &#8599;</a>
         </div>
       </article>
 
-    </div>
-  </section>
+      <article class="project-row border-bottom">
+        <div class="project-img-wrapper border-right">
+          <img src="port5.png" alt="Automação">
+        </div>
+        <div class="project-info">
+          <div>
+            <span class="micro-label">Python &middot; IA</span>
+            <h3 class="project-title">Automação e Garantia de Processos</h3>
+            <p class="support-text project-desc">Criei um sistema crucial para a garantia do processo de preços nos servidores gateways e PDVs das filiais, parte fixa da operação.</p>
+          </div>
+          <a href="#contato" class="action-link">Detalhes do projeto &#8599;</a>
+        </div>
+      </article>
 
-  <footer id="contato">
-    <div class="footer-content">
-      <h3>Vamos trabalhar juntos?</h3>
-      <p>Estou disponível para novos projetos e colaborações.</p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
-  <a href="https://linkedin.com/in/devfalves" target="_blank" rel="noopener noreferrer" class="btn">LinkedIn</a>
-  <a href="https://github.com/dev-falves" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
-</div>
-    </div>
-  </footer>
+      <article class="project-row border-bottom">
+        <div class="project-img-wrapper border-right">
+          <img src="port3.png" alt="Documentação">
+        </div>
+        <div class="project-info">
+          <div>
+            <span class="micro-label">Bookstack &middot; Gestão</span>
+            <h3 class="project-title">Sistema de Documentação</h3>
+            <p class="support-text project-desc">Subi um sistema de documentação estruturado para gerenciar e manter o conhecimento interno da equipe sempre acessível.</p>
+          </div>
+          <a href="#contato" class="action-link">Detalhes do projeto &#8599;</a>
+        </div>
+      </article>
 
+      <article class="project-row border-bottom">
+        <div class="project-img-wrapper border-right">
+          <img src="port2.png" alt="Visão Micro">
+        </div>
+        <div class="project-info">
+          <div>
+            <span class="micro-label">Redes &middot; Infra</span>
+            <h3 class="project-title">Visão Micro do Monitoramento</h3>
+            <p class="support-text project-desc">Painel construído com mais de 6 monitoramentos principais: links de rede, firewalls, switches, gateways, roteadores e print servers.</p>
+          </div>
+          <a href="#contato" class="action-link">Detalhes do projeto &#8599;</a>
+        </div>
+      </article>
+
+      <article class="project-row">
+        <div class="project-img-wrapper border-right">
+          <img src="port0.png" alt="Outros">
+        </div>
+        <div class="project-info">
+          <div>
+            <span class="micro-label">Proatividade &middot; Desempenho</span>
+            <h3 class="project-title">Soluções Diversas & Melhorias</h3>
+            <p class="support-text project-desc">Softwares de formatação e configuração automática de PDVs, controle de faturas, despertar automático de frente de caixa e ajustes de tela.</p>
+          </div>
+          <a href="#contato" class="action-link">Detalhes do projeto &#8599;</a>
+        </div>
+      </article>
+    </section>
+
+    <section id="contato">
+      <div class="cta-content">
+        <h2>Vamos construir juntos.</h2>
+        <p class="support-text">Estou disponível para novos projetos estruturais, automações e colaborações técnicas.</p>
+        <div class="cta-links">
+          <a href="https://linkedin.com/in/devfalves" target="_blank" rel="noopener noreferrer" class="action-link">LinkedIn &#8599;</a>
+          <a href="https://github.com/dev-falves" target="_blank" rel="noopener noreferrer" class="action-link">GitHub &#8599;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="#home" class="nav-item active">
+      <span class="nav-icon">&#9679;</span>
+      <span class="micro-label">Início</span>
+    </a>
+    <a href="#portfolio" class="nav-item">
+      <span class="nav-icon">&#9675;</span>
+      <span class="micro-label">Portfólio</span>
+    </a>
+    <a href="#contato" class="nav-item">
+      <span class="nav-icon">&#9675;</span>
+      <span class="micro-label">Contato</span>
+    </a>
+  </nav>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-item');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 150) {
+          if(section.getAttribute('id') === 'home' || section.getAttribute('id') === 'portfolio' || section.getAttribute('id') === 'contato') {
+            current = section.getAttribute('id');
+          }
+        }
+      });
+
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        item.querySelector('.nav-icon').innerHTML = '&#9675;';
+        if (item.getAttribute('href').includes(current)) {
+          item.classList.add('active');
+          item.querySelector('.nav-icon').innerHTML = '&#9679;';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
